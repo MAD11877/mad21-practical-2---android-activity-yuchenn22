@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private User user1 = new User("Yuchen", "Boy", 1, true);
@@ -31,10 +32,12 @@ public class MainActivity extends AppCompatActivity {
                 if (user1.followed){
                     followButton.setText("Follow");
                     user1.followed = false;
+
                 }
                 else {
                     followButton.setText("Unfollow");
                     user1.followed = true;
+                    Toast.makeText(getApplicationContext(),"followed", Toast.LENGTH_SHORT).show();
                 }
             }
     });
