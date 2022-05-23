@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
         TextView description = findViewById(R.id.Description);
         description.setText(user1.description);
         Button followButton = findViewById(R.id.Follow);
+        Intent receivingEnd = getIntent();
+        int message = receivingEnd.getIntExtra("value",1);
+        username.setText(user1.name + " " +message);
+
         if (user1.followed){
             followButton.setText("Unfollow");
         }
@@ -31,13 +36,15 @@ public class MainActivity extends AppCompatActivity {
                 Log.v(TAG, "Button Pressed!");
                 if (user1.followed){
                     followButton.setText("Follow");
+                    Toast.makeText(getApplicationContext(), "Unfollowed", Toast.LENGTH_SHORT).show();
                     user1.followed = false;
+
 
                 }
                 else {
                     followButton.setText("Unfollow");
                     user1.followed = true;
-                    Toast.makeText(getApplicationContext(),"followed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Followed", Toast.LENGTH_SHORT).show();
                 }
             }
     });
