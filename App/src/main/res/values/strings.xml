@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Practicals</string>
+    <string name="description">Description</string>
+    <string name="button">button</string>
+    <string name="follow">follow</string>
+    <string name="message">Message</string>
+    <string name="image">image</string>
+</resources>
